@@ -1,0 +1,14 @@
+rule "CoAP Error Handling"
+when
+    Item Temperature changed or
+    Item Humidity changed or
+    Item SwitchState changed
+then
+    if (Temperature.state == NULL || Humidity.state == NULL) {
+        logError("CoAP", "Device unreachable, retrying with exponential backoff")
+        createTimer(now.plusSeconds(5)) [ |
+            Temperature.sendCommand(REFRESH)
+            Humidity.sendCommand(REFRESH)
+        ]
+    }
+end

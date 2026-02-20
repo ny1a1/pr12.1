@@ -1,0 +1,3 @@
+Thing coap:device:tempSensor "CoAP Temperature Sensor" [ host="localhost", port=5683, path="/temperature" ]
+Thing coap:device:humiditySensor "CoAP Humidity Sensor" [ host="localhost", port=5683, path="/humidity" ]
+Thing coap:device:switch "CoAP Switch" [ host="localhost", port=5683, path="/switch" ]

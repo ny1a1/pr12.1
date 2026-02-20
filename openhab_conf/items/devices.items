@@ -1,0 +1,3 @@
+Number Temperature "Temperature [%.1f °C]" { channel="http:url:coapGateway:temperature" }
+Number Humidity "Humidity [%.1f %%]" { channel="http:url:coapGateway:humidity" }
+Switch SwitchState "Switch" { channel="http:url:coapGateway:switch"}

@@ -1,0 +1,25 @@
+Thing http:url:coapGateway "HTTP-CoAP Gateway" [
+    baseURL="http://coap-proxy:5000",
+    refresh=20,
+    contentType="application/json",
+    ignoreSSLErrors=true
+] {
+    Channels:
+        Type number : temperature "Temperature" [
+            stateExtension="/temperature",
+            stateTransformation="JSONPATH:$.value"
+        ]
+        Type number : humidity "Humidity" [
+            stateExtension="/humidity",
+            stateTransformation="JSONPATH:$.value"
+        ]
+        Type switch : switch "Switch" [
+            stateExtension="/switch",
+            stateTransformation="JSONPATH:$.state",
+            commandExtension="/switch",
+            commandMethod="PUT",
+            contentType="text/plain",
+            onValue="ON",
+            offValue="OFF"
+        ]
+}

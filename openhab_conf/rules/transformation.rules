@@ -1,0 +1,8 @@
+rule "Transform CoAP Payload"
+when
+    Item Temperature received update
+then
+    val rawPayload = Temperature.state.toString
+    val transformed = transform("JS", "coap2json.js", rawPayload)
+    logInfo("Transform", "Transformed Temperature JSON: " + transformed)
+end

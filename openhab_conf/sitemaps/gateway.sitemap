@@ -1,0 +1,10 @@
+sitemap gateway label="CoAP → HTTP Gateway"
+{
+    Frame label="Sensors" {
+        Text item=Temperature
+        Text item=Humidity
+    }
+    Frame label="Control" {
+        Switch item=SwitchState
+    }
+}
